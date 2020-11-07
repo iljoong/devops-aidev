@@ -1,6 +1,8 @@
 # README
 
-Fruits classification app (BuildID: 437)
+> This sample app is used in DevOps workshop for AI app developer 
+
+Fruits classification app
 
 - This app classifies 7 fruits (apple, avocado, banana, cherry, mango, orange, peach)
 - Trained fruit images from [https://www.kaggle.com/moltean/fruits](https://www.kaggle.com/moltean/fruits)
@@ -16,7 +18,7 @@ This app trained only 7 fruits (apple, avocado, banana, cherry, mango, orange, p
 
 ## Docker image
 
-You can train your own model or download pre-trained models from following url
+You can train your own model or download pre-trained models
 - [fruits-01-0.7265.h5](https://drive.google.com/uc?id=1FeRRMmEh9OEv4YyHLa8bR8rOm2j7edlq&export=download)
 - [fruits-05-0.0264.h5](https://drive.google.com/uc?id=1OpN3YfBeMNznKzneawcYEXEbULuW0pz9&export=download)
 

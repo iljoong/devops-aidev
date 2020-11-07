@@ -10,7 +10,7 @@
    <pre id="apipage">
 curl -i -X GET https://_url_/api/diag
 curl -i -X GET https://_url_/api/warm
-curl -i -X POST -H "Content-Type: multipart/form-data" -F "file=@img.jpg" https://_url_/api/score
+curl -i -X POST -H "Content-Type: multipart/form-data" -F "file=@samples/peach.jpg" https://_url_/api/score
 
 curl -i -X PUT -H "Content-Type: application/json" -d '{"modelfile": "fruits-05-0.0264.h5"}' https://_url_/api/update
 curl -i -X POST -d '' https://_url_/api/upload</pre>

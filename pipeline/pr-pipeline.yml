@@ -11,6 +11,5 @@ steps:
     targetType: 'inline'
     script: |
       # Write your commands here
-      pylint -f msvs -E --disable=F0401 app.py 2> /dev/null
-      pylint -f msvs -E --disable=F0401 appmodel.py 2> /dev/null
+      pylint -f msvs -E --disable=F0401 *.py 2> /dev/null
     failOnStderr: true
