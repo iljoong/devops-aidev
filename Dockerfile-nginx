@@ -1,0 +1,2 @@
+FROM nginx:latest
+RUN sed -i "s/nginx/Azure DevOps/g" /usr/share/nginx/html/index.html

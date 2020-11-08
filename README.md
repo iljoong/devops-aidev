@@ -36,6 +36,14 @@ Run docker image with environment variables, `MODELPATH`, `BLOBACCT`, and `BLOBK
 docker run -p 8080:8080 -e "MODELPATH=/models/fruits.h5" -e "BLOBACCT=_blob_account_" -e "BLOBKEY=_blob_ket_" -d fruits
 ```
 
+### ACR build
+
+Build nginx image in your ACR.
+
+```
+az acr build -r ikaiops.azurecr.io -f Dockerfile-nginx -t <acrname>.azurecr.io/nginx:latest .
+```
+
 ## Local test
 
 ```bash
