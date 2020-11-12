@@ -1,0 +1,18 @@
+# sample docker build pipeline
+
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-18.04' # Microsoft hosted agent
+  #name: 'lxpool' # private agent
+  
+steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'MyAzureSubscription'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az acr build -r $(ACRNAME) -f Dockerfile \
+        --build-arg MODELURL=$(MODELURL) --build-arg BUILDID=$(Build.BuildId) \
+        -t $(ACRNAME)/fruits360:$(Build.BuildId) -t $(ACRNAME)/fruits360:latest .

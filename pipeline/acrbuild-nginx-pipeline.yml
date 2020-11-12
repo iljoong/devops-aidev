@@ -12,6 +12,5 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az acr build -r $(ACR_NAME) -f Dockerfile \
-        --build-arg MODELURL=$(MODEL_URL) --build-arg BUILDID=$(Build.BuildId) \
-        -t $(ACR_NAME)/fruitsdevops:$(Build.BuildId) -t $(ACR_NAME)/fruitsdevops:latest .
+      az acr build -r $(AC_NAME) -f Dockerfile-nginx \
+        -t $(ACRNAME)/nginx:$(Build.BuildId) -t $(ACRNAME)/nginx:latest .

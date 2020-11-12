@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fruits-deployment
+  namespace: web
+  labels:
+    deploy: fruits
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fruits
+  template:
+    metadata:
+      labels:
+        app: fruits
+    spec:
+      containers:
+      - image: "ikaiops.azurecr.io/fruits360:latest"
+        imagePullPolicy: Always
+        name: fruits
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 30
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        ports:
+          - containerPort: 8080
+            name: http
+            protocol: TCP
+        env:
+          - name: MODELPATH
+            value: '/models/fruits.h5'
+        envFrom:
+          - secretRef:
+              name: blob
+      imagePullSecrets:
+      - name: acr-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fruits
+  namespace: web
+spec:
+  type: LoadBalancer
+  selector:
+    app: fruits
+  ports:
+    - protocol: TCP
+      name: fruits-http
+      port: 80
+      targetPort: 8080
