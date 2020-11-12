@@ -28,6 +28,10 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/upload')
+def uploadpage():
+    return render_template('upload.html')
+
 @app.route('/ping')
 def ping():
     res = {'message':  'hello'}
